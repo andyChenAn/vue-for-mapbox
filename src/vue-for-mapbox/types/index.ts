@@ -24,7 +24,8 @@ export type {
   MapSourceDataEvent,
   MapWheelEvent,
   ErrorEvent,
-  MapMouseEvent
+  MapMouseEvent,
+  Popup
 } from 'mapbox-gl';
 // 相机属性
 export type CameraAttribute = {

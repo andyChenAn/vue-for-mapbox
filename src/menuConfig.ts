@@ -22,5 +22,9 @@ export default [
   {
     name : '添加一个弹框',
     path : '/popup'
+  },
+  {
+    name : '添加一个marker',
+    path : '/marker'
   }
 ]

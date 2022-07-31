@@ -10,8 +10,8 @@ import mapboxgl from 'mapbox-gl';
 import deepEqual from '../utils/deepEqual';
 const popupContainer = ref();
 type PopupProps = {
-  longitude: number;
-  latitude: number;
+  longitude?: number;
+  latitude?: number;
   closeButton?: boolean;
   closeOnClick?: boolean;
   anchor?: string;

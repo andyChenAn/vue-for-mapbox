@@ -40,6 +40,11 @@ const routes: Array<RouteRecordRaw> = [
     name : 'popup',
     component : () => import('../views/popup.vue')
   },
+  {
+    path : '/marker',
+    name : 'marker',
+    component : () => import('../views/marker.vue')
+  },
 ]
 const router = createRouter({
   history: createWebHashHistory(),
