@@ -1,4 +1,6 @@
 import { LngLatLike, PaddingOptions } from 'mapbox-gl';
+import MapboxDraw, { DrawFeature } from 'mapbox__mapbox-gl-draw';
+export type { MapboxDraw };
 export type {
   Map as MapboxMap,
   LngLatLike,
@@ -27,6 +29,7 @@ export type {
   MapMouseEvent,
   Popup
 } from 'mapbox-gl';
+
 // 相机属性
 export type CameraAttribute = {
   center: LngLatLike;
@@ -41,3 +44,9 @@ export type GlobalSettings = {
   workerCount?: number;
   maxParallelImageRequests?: number;
 };
+export type DrawCustomFeature = {
+  properties?: {[key: string]: any},
+  id?: string;
+  [key: string]: any;
+} & DrawFeature;
+export type { Feature , FeatureCollection , GeoJSON } from 'geojson';

@@ -26,5 +26,13 @@ export default [
   {
     name : '添加一个marker',
     path : '/marker'
+  },
+  {
+    name : 'draw a circle',
+    path : '/drawCircle'
+  },
+  {
+    name : 'draw a rect',
+    path : '/drawRect'
   }
 ]

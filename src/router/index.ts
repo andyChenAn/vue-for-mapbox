@@ -45,6 +45,16 @@ const routes: Array<RouteRecordRaw> = [
     name : 'marker',
     component : () => import('../views/marker.vue')
   },
+  {
+    path : '/drawCircle',
+    name : 'drawCircle',
+    component : () => import('../views/drawCircle.vue')
+  },
+  {
+    path : '/drawRect',
+    name : 'drawRect',
+    component : () => import('../views/drawRect')
+  }
 ]
 const router = createRouter({
   history: createWebHashHistory(),

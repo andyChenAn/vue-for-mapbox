@@ -31,24 +31,28 @@ const data = reactive({
   },
   layerData: {
     id: 'data',
-    type: 'fill',
-    paint: {
-      'fill-color': {
-        property: 'percentile',
-        stops: [
-          [0, '#3288bd'],
-          [1, '#66c2a5'],
-          [2, '#abdda4'],
-          [3, '#000'],
-          [4, '#ffffbf'],
-          [5, '#fee08b'],
-          [6, '#fdae61'],
-          [7, '#f46d43'],
-          [8, '#d53e4f']
-        ]
-      },
-      'fill-opacity': 0.8
+    type : 'circle',
+    paint : {
+      'circle-color' : '#f60'
     }
+    // type: 'fill',
+    // paint: {
+    //   'fill-color': {
+    //     property: 'percentile',
+    //     stops: [
+    //       [0, '#3288bd'],
+    //       [1, '#66c2a5'],
+    //       [2, '#abdda4'],
+    //       [3, '#000'],
+    //       [4, '#ffffbf'],
+    //       [5, '#fee08b'],
+    //       [6, '#fdae61'],
+    //       [7, '#f46d43'],
+    //       [8, '#d53e4f']
+    //     ]
+    //   },
+    //   'fill-opacity': 0.8
+    // }
   }
 });
 
@@ -73,11 +77,15 @@ function updatePercentiles(
 }
 setTimeout(() => {
   fetch(
-    'https://raw.githubusercontent.com/uber/react-map-gl/master/examples/.data/us-income.geojson'
+    'https://gw.alipayobjects.com/os/basement_prod/d3564b06-670f-46ea-8edb-842f7010a7c6.json'
   )
     .then(resp => resp.json())
     .then(res => {
-      data.sourceData = updatePercentiles(res, f => f.properties.income[2015])
+      data.layerData.paint = {
+        'circle-color' : '#000'
+      };
+      data.sourceData = res;
+      //data.sourceData = updatePercentiles(res, f => f.properties.income[2015])
     })
 }, 2000)
 

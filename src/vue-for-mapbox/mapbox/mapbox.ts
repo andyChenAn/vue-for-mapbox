@@ -8,7 +8,6 @@ import type {
   MapboxEvent , 
   MapLayerMouseEvent , 
   MapBoxZoomEvent,
-  MapDataEvent,
   MapStyleDataEvent,
   MapSourceDataEvent,
   ErrorEvent,
@@ -16,6 +15,7 @@ import type {
   MapMouseEvent
 } from '../types';
 import deepEqual from '../utils/deepEqual';
+import Draw from '../draw';
 type MapboxProps = {
   accessToken?: string;
   cursor?: string;
@@ -164,6 +164,7 @@ export default class Mapbox {
   props: MapboxProps;
   sourceCount: number = 0;
   layerCount: number = 0;
+  draw: any;
   static mapList: Mapbox[] = [];
   constructor (Mapclass: typeof MapboxMap , props: MapboxProps , container: HTMLDivElement) {
     this.props = props;
@@ -184,6 +185,8 @@ export default class Mapbox {
     if (props.cursor) {
       map.getCanvas().style.cursor = props.cursor;
     }
+    // 创建draw实例
+    this.draw = new Draw(map);
     this._map = map;
     this.startAnimationRequest(props);
     // 绑定事件

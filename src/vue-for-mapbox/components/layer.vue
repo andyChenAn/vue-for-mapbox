@@ -32,6 +32,12 @@ const mapboxContext: any = inject('mapboxContext');
 
 watch(props , () => {
   layerProps = filter(props);
+  const { id } = layerProps;
+  if (mapboxContext.value) {
+    const map = mapboxContext.value.map;
+    updateLayer(map , id , layerProps , prevLayerProps)
+    prevLayerProps = Object.assign(prevLayerProps , layerProps);
+  }
 });
 
 function createLayer (map: MapboxMap , layerId: string , props: LayerProps) {
